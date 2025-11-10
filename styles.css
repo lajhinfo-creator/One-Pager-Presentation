@@ -21,32 +21,7 @@ body {
 }
 
 /* ==============================
-   SECTION REVEAL ANIMATION
-============================== */
-.section.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-  will-change: opacity, transform;
-}
-
-.section.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.section.reveal:nth-child(1) {
-  transition-delay: 0.1s;
-}
-.section.reveal:nth-child(2) {
-  transition-delay: 0.2s;
-}
-.section.reveal:nth-child(3) {
-  transition-delay: 0.3s;
-}
-
-
-/* ==============================
-   HEADER WITH IMAGE + ANIMATION
+   HEADER WITH IMAGE + OVERLAY
 ============================== */
 .header {
   position: relative;
@@ -97,7 +72,7 @@ body {
   50% { transform: translateY(-10px); }
 }
 
-/* HEADER TEXT COLORS */
+/* Header text */
 .header h1 {
   color: #ffffff;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
@@ -126,10 +101,10 @@ body {
   z-index: 3;
 }
 
-/* LOGO BUTTON */
+/* Logo */
 .logo {
   position: relative;
-  top: 0px;
+  top: 0;
   right: 40px;
   background: rgba(15, 23, 42, 0.85);
   padding: 8px 20px;
@@ -141,12 +116,11 @@ body {
   letter-spacing: 0.16em;
   box-shadow: 0 6px 18px rgba(15, 23, 42, 0.6);
   border: 1px solid rgba(148, 163, 184, 0.6);
-  width: auto;
   display: inline-block;
   z-index: 3;
 }
 
-/* HEADER IMAGE OVERLAY */
+/* Header overlay tint */
 .header-overlay {
   position: absolute;
   inset: 0;
@@ -205,37 +179,31 @@ body {
   font-size: 18px;
 }
 
-.section-icon.summary {
-  background: #fee2e2;
-  color: #b91c1c;
-}
-.section-icon.process {
-  background: #ffedd5;
-  color: #c05621;
-}
-.section-icon.enhance {
-  background: #dbeafe;
-  color: #1d4ed8;
-}
-.section-icon.impact {
-  background: #dcfce7;
-  color: #15803d;
-}
+.section-icon.summary { background: #fee2e2; color: #b91c1c; }
+.section-icon.process { background: #ffedd5; color: #c05621; }
+.section-icon.enhance { background: #dbeafe; color: #1d4ed8; }
+.section-icon.impact  { background: #dcfce7; color: #15803d; }
 
-.section-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: #111827;
-}
+.section-title { font-size: 18px; font-weight: 700; color: #111827; }
+.section-body  { font-size: 14px; line-height: 1.7; color: #4b5563; }
 
-.section-body {
-  font-size: 14px;
-  line-height: 1.7;
-  color: #4b5563;
+/* ==============================
+   SECTION REVEAL ANIMATION
+============================== */
+.section.reveal {
+  opacity: 0;
+  transform: translateY(60px) scale(0.98);
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.section.reveal.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 /* ==============================
-   FOOTER – CLEAN SCROLL REVEAL (NO JS PARALLAX)
+   FOOTER – CLEAN SCROLL REVEAL WITH FIXED IMAGE
 ============================== */
 .footer {
   position: relative;
@@ -245,8 +213,9 @@ body {
   background: #020617
     url("https://raw.githubusercontent.com/lajhinfo-creator/Schwab-learning-journey/main/Image6.png")
       center/cover no-repeat;
+  background-attachment: fixed; /* anchors image to viewport */
   color: white;
-  height: 100vh;              /* big “panel” that gets revealed as you scroll */
+  height: 60vh;
   padding: 0 40px 28px;
   text-align: center;
   overflow: hidden;
@@ -255,11 +224,7 @@ body {
 .footer-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(15, 23, 42, 0.78),
-    transparent 75%
-  );
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.78), transparent 55%);
   z-index: 1;
 }
 
@@ -271,11 +236,10 @@ body {
   font-size: 15px;
   color: #f3f4f6;
   margin: 0 auto;
-  opacity: 1;           /* always visible */
-  transform: none;      /* no slide animation */
-  transition: none;     /* no animation needed */
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
-
 
 /* ==============================
    DOWNLOAD BUTTON
@@ -295,22 +259,15 @@ body {
   transition: background 0.3s ease;
   z-index: 1000;
 }
-
-#downloadPDF:hover {
-  background: #1d4ed8;
-}
+#downloadPDF:hover { background: #1d4ed8; }
 
 /* ==============================
    PRINT STYLING (1 PAGE)
 ============================== */
 @media print {
-  @page {
-    size: letter portrait;
-    margin: 0;
-  }
+  @page { size: letter portrait; margin: 0; }
 
-  html,
-  body {
+  html, body {
     width: 8.5in;
     height: 11in;
     margin: 0;
@@ -327,15 +284,7 @@ body {
     transform-origin: top center;
   }
 
-  .header {
-    padding: 40px 50px 32px;
-  }
-
-  .footer {
-    height: 200px;
-  }
-
-  #downloadPDF {
-    display: none !important;
-  }
+  .header { padding: 40px 50px 32px; }
+  .footer { height: 200px; background-attachment: scroll; }
+  #downloadPDF { display: none !important; }
 }
