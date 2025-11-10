@@ -379,7 +379,7 @@ body {
 }
 
 /* ==============================
-   FOOTER WITH PARALLAX-LIKE IMAGE
+   FOOTER WITH ZOOM REVEAL PARALLAX
 ============================== */
 .footer {
   position: relative;
@@ -391,21 +391,32 @@ body {
   background-color: #020617;
   background-image: url("https://raw.githubusercontent.com/lajhinfo-creator/Schwab-learning-journey/main/Image6.png");
   background-repeat: no-repeat;
-  background-size: 50% auto;              /* fills area; some cropping possible */
-  background-position: center bottom;
-  background-attachment: fixed;        /* parallax-style: image feels static */
+
+  /* Start slightly zoomed in and low */
+  background-size: 120% auto;       /* starting zoom (will animate down) */
+  background-position: center 90%;  /* start focus a bit lower */
+  background-attachment: fixed;     /* anchored feel */
 
   color: white;
-  height: 70vh;                        /* how tall the reveal is */
+  height: 70vh;                     /* how tall the reveal is */
   padding: 0 40px 28px;
   text-align: center;
   overflow: hidden;
+
+  /* Smooth animation when JS updates size/position */
+  will-change: background-size, background-position;
+  transition: background-size 0.25s ease-out,
+              background-position 0.25s ease-out;
 }
 
 .footer-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(15, 23, 42, 0.78), transparent 55%);
+  background: linear-gradient(
+    to top,
+    rgba(15, 23, 42, 0.78),
+    transparent 55%
+  );
   z-index: 1;
 }
 
