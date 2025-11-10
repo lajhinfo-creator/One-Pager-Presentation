@@ -454,7 +454,7 @@ body {
 }
 
 /* ==============================
-   PRINT STYLING – FORCE 1 PAGE
+   PRINT STYLING – 1 FULL PAGE, CENTERED
 ============================== */
 @media print {
   @page {
@@ -473,41 +473,46 @@ body {
     background: #020617;
   }
 
-  /* This is the main scaler that replaces the manual "Scale" in the dialog.
-     0.75 ≈ 75%. If you want it bigger/smaller, tweak between 0.70–0.85. */
+  /* Global scaling so everything fits on one page.
+     If you want it a bit larger, try 0.72–0.75 later. */
   body {
-    zoom: 0.75;
+    zoom: 0.7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .page-wrapper {
+    width: 8.0in;          /* slight inset so it’s nicely framed */
     margin: 0 auto;
-    width: 8.5in;
-    max-height: 11in;
     box-shadow: none;
     border-radius: 0;
-    overflow: hidden;
+    background: #f9fafb;
+    page-break-before: avoid;
+    page-break-after: avoid;
   }
 
-  /* Slightly tighter layout for print so everything fits nicely */
+  /* Tighter vertical spacing so header + body + footer
+     comfortably fit within the page height */
   .header {
-    padding: 32px 40px 22px;
+    padding: 28px 38px 18px;
   }
 
   .main-content {
-    padding: 22px 30px 22px;
-    gap: 16px;
+    padding: 18px 28px 18px;
+    gap: 14px;
   }
 
   .card {
-    padding: 16px 18px 14px;
+    padding: 14px 16px 12px;
   }
 
   .footer {
-    height: 190px;        /* enough to see the image + text, but not too tall */
-    padding: 0 30px 22px; /* slightly tighter bottom padding */
+    height: 180px;          /* enough for the image + text */
+    padding: 0 28px 18px;
   }
 
-  /* Hide the floating button in print */
+  /* Hide floating button in print */
   #downloadPDF {
     display: none !important;
   }
