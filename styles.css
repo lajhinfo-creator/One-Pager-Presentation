@@ -484,10 +484,14 @@ body {
     padding: 40px 50px 32px;
   }
 
+   @media print {
   .footer {
-    height: 180px;
-    background-attachment: scroll; /* avoids odd behaviour in some print engines */
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center bottom;
+    height: 180px; /* or whatever fits your one-page layout */
   }
+}
 
   #downloadPDF {
     display: none !important;
