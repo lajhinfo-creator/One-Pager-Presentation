@@ -454,7 +454,7 @@ body {
 }
 
 /* ==============================
-   PRINT STYLING (1 PAGE)
+   PRINT STYLING – FORCE 1 PAGE
 ============================== */
 @media print {
   @page {
@@ -468,31 +468,46 @@ body {
     height: 11in;
     margin: 0;
     padding: 0;
-    background: #020617;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+    background: #020617;
+  }
+
+  /* This is the main scaler that replaces the manual "Scale" in the dialog.
+     0.75 ≈ 75%. If you want it bigger/smaller, tweak between 0.70–0.85. */
+  body {
+    zoom: 0.75;
   }
 
   .page-wrapper {
-    width: 8.5in;
     margin: 0 auto;
-    transform: scale(0.78);       /* roughly your “75–80” sweet spot */
-    transform-origin: top center;
+    width: 8.5in;
+    max-height: 11in;
+    box-shadow: none;
+    border-radius: 0;
+    overflow: hidden;
   }
 
+  /* Slightly tighter layout for print so everything fits nicely */
   .header {
-    padding: 40px 50px 32px;
+    padding: 32px 40px 22px;
   }
 
-   @media print {
+  .main-content {
+    padding: 22px 30px 22px;
+    gap: 16px;
+  }
+
+  .card {
+    padding: 16px 18px 14px;
+  }
+
   .footer {
-    background-attachment: scroll;
-    background-size: cover;
-    background-position: center bottom;
-    height: 180px; /* or whatever fits your one-page layout */
+    height: 190px;        /* enough to see the image + text, but not too tall */
+    padding: 0 30px 22px; /* slightly tighter bottom padding */
   }
-}
 
+  /* Hide the floating button in print */
   #downloadPDF {
     display: none !important;
   }
