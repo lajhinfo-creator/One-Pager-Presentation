@@ -17,6 +17,7 @@ function handleReveal() {
 // ==============================
 // PARALLAX REVEAL FOR FOOTER IMAGE
 // ==============================
+// Dramatic 60vh Parallax Reveal for Footer
 function handleFooterParallax() {
   const footer = document.querySelector(".footer");
   const footerText = document.querySelector(".footer-text");
@@ -25,26 +26,23 @@ function handleFooterParallax() {
   const rect = footer.getBoundingClientRect();
   const windowHeight = window.innerHeight;
 
-  // How much of the footer is in view
-  const visibleAmount = Math.min(windowHeight, Math.max(0, windowHeight - rect.top));
-  const progress = visibleAmount / Math.min(windowHeight, rect.height || windowHeight);
-  const clamped = Math.max(0, Math.min(progress, 1));
+  // progress = how much of the footer is visible (0 = offscreen, 1 = fully visible)
+  const progress = 1 - Math.min(Math.max(rect.top / windowHeight, 0), 1);
 
-  // Parallax background position (subtle)
-  const parallaxOffset = clamped * 30 - 15; // range roughly -15px to +15px
-  footer.style.backgroundPosition = `center ${parallaxOffset}px`;
+  // Dramatic parallax movement (larger range)
+  const baseY = 60;        // starting Y position (%)
+  const parallaxRange = 40; // movement range (increase for more dramatic effect)
+  const newPos = baseY - progress * parallaxRange;
+  footer.style.backgroundPosition = `center ${newPos}%`;
 
-  // Fade + slide the outcome text in as the footer comes into view
+  // Dramatic text reveal (fade + long lift)
   if (footerText) {
-    if (clamped > 0.15) {
-      footerText.style.opacity = "1";
-      footerText.style.transform = "translateY(0)";
-    } else {
-      footerText.style.opacity = "0";
-      footerText.style.transform = "translateY(20px)";
-    }
+    const visible = Math.min(Math.max((progress - 0.1) * 1.4, 0), 1); // smooth easing
+    footerText.style.opacity = visible;
+    footerText.style.transform = `translateY(${80 * (1 - visible)}px)`;
   }
 }
+
 
 // ==============================
 // DOWNLOAD AS PDF BUTTON
