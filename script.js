@@ -1,10 +1,10 @@
 // ==============================
-// SCROLL REVEAL FOR CONTENT CARDS
+// SCROLL REVEAL FOR SECTIONS
 // ==============================
 function handleReveal() {
   const sections = document.querySelectorAll(".section.reveal");
   const windowHeight = window.innerHeight;
-  const offset = 120; // how early the reveal should start
+  const offset = 120;
 
   sections.forEach((section) => {
     const top = section.getBoundingClientRect().top;
@@ -15,13 +15,15 @@ function handleReveal() {
 }
 
 // ==============================
-// DOWNLOAD AS PDF BUTTON
+// PDF DOWNLOAD / PRINT
 // ==============================
 function setupPrintButton() {
   const btn = document.getElementById("downloadPDF");
   if (!btn) return;
 
   btn.addEventListener("click", () => {
+    // Let the browser's print dialog handle scaling;
+    // our @media print CSS keeps it to one page.
     window.print();
   });
 }
@@ -34,8 +36,13 @@ function onScroll() {
 }
 
 window.addEventListener("scroll", onScroll);
-window.addEventListener("load", handleReveal);
+
+window.addEventListener("load", () => {
+  setupPrintButton();
+  handleReveal();
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   setupPrintButton();
+  handleReveal();
 });
