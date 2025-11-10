@@ -246,7 +246,7 @@ body {
     url("https://raw.githubusercontent.com/lajhinfo-creator/Schwab-learning-journey/main/Image6.png")
       center/cover no-repeat;
   color: white;
-  height: 60vh;              /* big “panel” that gets revealed as you scroll */
+  height: 100vh;              /* big “panel” that gets revealed as you scroll */
   padding: 0 40px 28px;
   text-align: center;
   overflow: hidden;
@@ -258,7 +258,7 @@ body {
   background: linear-gradient(
     to top,
     rgba(15, 23, 42, 0.78),
-    transparent 55%
+    transparent 75%
   );
   z-index: 1;
 }
