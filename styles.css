@@ -396,7 +396,7 @@ body {
   background-attachment: fixed;        /* parallax-style: image feels static */
 
   color: white;
-  height: 60vh;                        /* how tall the reveal is */
+  height: 70vh;                        /* how tall the reveal is */
   padding: 0 40px 28px;
   text-align: center;
   overflow: hidden;
