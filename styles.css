@@ -21,6 +21,31 @@ body {
 }
 
 /* ==============================
+   SECTION REVEAL ANIMATION
+============================== */
+.section.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
+}
+
+.section.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.section.reveal:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.section.reveal:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.section.reveal:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+
+/* ==============================
    HEADER WITH IMAGE + ANIMATION
 ============================== */
 .header {
