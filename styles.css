@@ -391,7 +391,7 @@ body {
   background-color: #020617;
   background-image: url("https://raw.githubusercontent.com/lajhinfo-creator/Schwab-learning-journey/main/Image6.png");
   background-repeat: no-repeat;
-  background-size: cover;              /* fills area; some cropping possible */
+  background-size: 115% auto;              /* fills area; some cropping possible */
   background-position: center bottom;
   background-attachment: fixed;        /* parallax-style: image feels static */
 
