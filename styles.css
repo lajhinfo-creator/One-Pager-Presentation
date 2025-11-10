@@ -215,7 +215,7 @@ body {
       center/cover no-repeat;
   background-attachment: fixed; /* anchors image to viewport */
   color: white;
-  height: 40vh;
+  height: 60vh;
   padding: 0 40px 28px;
   text-align: center;
   overflow: hidden;
