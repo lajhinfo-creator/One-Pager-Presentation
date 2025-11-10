@@ -37,7 +37,7 @@ function handleFooterZoomParallax() {
 
   // Zoom: from 120% -> 100%
   const startZoom = 120;
-  const endZoom = 100;
+  const endZoom = 0;
   const currentZoom = startZoom - (startZoom - endZoom) * progress;
 
   // Vertical position: from 90% -> 70% (moves focus upward)
