@@ -63,23 +63,13 @@ body {
 }
 
 @keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.3;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.5;
-  }
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.1); opacity: 0.5; }
 }
 
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 /* HEADER TEXT COLORS */
@@ -111,7 +101,7 @@ body {
   z-index: 3;
 }
 
-/* SCHWAB LOGO BUTTON */
+/* LOGO BUTTON */
 .logo {
   position: relative;
   top: 0px;
@@ -131,17 +121,15 @@ body {
   z-index: 3;
 }
 
-/* HEADER IMAGE OVERLAY (COLOR + TRANSPARENCY CONTROL) */
+/* HEADER IMAGE OVERLAY */
 .header-overlay {
   position: absolute;
   inset: 0;
   background: rgba(15, 23, 42, 0.45);
-  /* ↑ adjust opacity (0 = clear, 1 = solid) or color (e.g., rgba(0,0,0,.5)) */
   z-index: 2;
   pointer-events: none;
 }
 
-/* make sure header text + logo sit above the overlay */
 .header .logo,
 .header .header-tag,
 .header h1,
@@ -221,145 +209,8 @@ body {
   color: #4b5563;
 }
 
-/* BULLETS */
-.bullet-group {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 6px;
-}
-
-.bullet-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: #111827;
-  margin-bottom: 2px;
-}
-
-.bullet-text {
-  font-size: 13px;
-  line-height: 1.7;
-  color: #4b5563;
-}
-
-/* QUOTE */
-.quote-box {
-  margin-top: 12px;
-  background: linear-gradient(135deg, #fffbeb, #fef3c7);
-  border-radius: 14px;
-  padding: 10px 14px 12px 40px;
-  position: relative;
-  border: 1px solid rgba(234, 179, 8, 0.6);
-}
-
-.quote-box::before {
-  content: "“";
-  position: absolute;
-  left: 12px;
-  top: 2px;
-  font-size: 26px;
-  color: rgba(180, 83, 9, 0.7);
-}
-
-.quote-text {
-  font-size: 13px;
-  line-height: 1.7;
-  color: #713f12;
-}
-
-/* ENHANCEMENTS */
-.enhancement-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.enhancement {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 10px 12px;
-  border-radius: 12px;
-  background: #fef2f2;
-  border: 1px solid rgba(248, 113, 113, 0.4);
-}
-
-.enhancement:nth-child(2) {
-  background: #eff6ff;
-  border-color: rgba(59, 130, 246, 0.4);
-}
-
-.enhancement:nth-child(3) {
-  background: #ecfeff;
-  border-color: rgba(6, 182, 212, 0.4);
-}
-
-.enhancement:nth-child(4) {
-  background: #fef9c3;
-  border-color: rgba(234, 179, 8, 0.4);
-}
-
-.enhancement-icon {
-  font-size: 18px;
-  margin-top: 2px;
-}
-
-.enhancement-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: #111827;
-}
-
-.enhancement-text {
-  font-size: 12px;
-  color: #4b5563;
-  line-height: 1.7;
-}
-
-/* IMPACT */
-.impact-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 6px;
-}
-
-.impact-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 12px;
-  border-radius: 999px;
-  font-size: 12px;
-  background: #fee2e2;
-  color: #b91c1c;
-  border: 1px solid rgba(248, 113, 113, 0.5);
-}
-
-.impact-pill:nth-child(3) {
-  background: #fef3c7;
-  color: #b45309;
-  border-color: rgba(245, 158, 11, 0.5);
-}
-
-.impact-pill:nth-child(4) {
-  background: #e0f2fe;
-  color: #075985;
-  border-color: rgba(59, 130, 246, 0.5);
-}
-
-.impact-pill:nth-child(5) {
-  background: #dcfce7;
-  color: #166534;
-  border-color: rgba(34, 197, 94, 0.5);
-}
-
-.impact-icon {
-  font-size: 14px;
-}
-
 /* ==============================
-   FOOTER WITH IMAGE + PARALLAX REVEAL
+   FOOTER WITH 60vh DRAMATIC PARALLAX REVEAL
 ============================== */
 .footer {
   position: relative;
@@ -370,13 +221,20 @@ body {
     url("https://raw.githubusercontent.com/lajhinfo-creator/Schwab-learning-journey/main/Image6.png")
       center/cover no-repeat;
   color: white;
-  height: 60vh; /* 60vh keeps it cinematic */
+  height: 60vh;
   padding: 0 40px 28px;
   text-align: center;
   overflow: hidden;
   will-change: background-position;
   transition: background-position 0.4s ease-out;
-  background-attachment: scroll; /* smooth parallax control */
+  background-attachment: scroll;
+}
+
+.footer-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.78), transparent 55%);
+  z-index: 1;
 }
 
 .footer-text {
@@ -388,7 +246,7 @@ body {
   color: #f3f4f6;
   margin: 0 auto;
   opacity: 0;
-  transform: translateY(80px); /* starts way lower for drama */
+  transform: translateY(80px);
   transition: opacity 1s ease, transform 1s ease;
 }
 
