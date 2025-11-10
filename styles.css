@@ -235,30 +235,31 @@ body {
 }
 
 /* ==============================
-   FOOTER WITH 60vh DRAMATIC PARALLAX REVEAL
+   FOOTER – CLEAN SCROLL REVEAL (NO JS PARALLAX)
 ============================== */
 .footer {
   position: relative;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-end; /* keeps text near the bottom edge */
   justify-content: center;
   background: #020617
     url("https://raw.githubusercontent.com/lajhinfo-creator/Schwab-learning-journey/main/Image6.png")
       center/cover no-repeat;
   color: white;
-  height: 60vh;
+  height: 60vh;              /* big “panel” that gets revealed as you scroll */
   padding: 0 40px 28px;
   text-align: center;
   overflow: hidden;
-  will-change: background-position;
-  transition: background-position 0.4s ease-out;
-  background-attachment: scroll;
 }
 
 .footer-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(15, 23, 42, 0.78), transparent 55%);
+  background: linear-gradient(
+    to top,
+    rgba(15, 23, 42, 0.78),
+    transparent 55%
+  );
   z-index: 1;
 }
 
@@ -270,10 +271,11 @@ body {
   font-size: 15px;
   color: #f3f4f6;
   margin: 0 auto;
-  opacity: 0;
-  transform: translateY(80px);
-  transition: opacity 1s ease, transform 1s ease;
+  opacity: 1;           /* always visible */
+  transform: none;      /* no slide animation */
+  transition: none;     /* no animation needed */
 }
+
 
 /* ==============================
    DOWNLOAD BUTTON
