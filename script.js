@@ -36,7 +36,7 @@ function handleFooterZoomParallax() {
   progress = Math.max(0, Math.min(progress, 1));
 
   // Zoom: from 120% -> 100%
-  const startZoom = 120;
+  const startZoom = 85;
   const endZoom = 75;
   const currentZoom = startZoom - (startZoom - endZoom) * progress;
 
