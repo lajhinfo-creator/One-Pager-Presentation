@@ -205,22 +205,22 @@ body {
 /* ==============================
    FULL-WIDTH FOOTER WITH FIXED IMAGE
 ============================== */
+/* ==============================
+   FOOTER – FULL WIDTH INSIDE WRAPPER
+============================== */
 .footer {
   position: relative;
-  width: 100vw; /* spans full viewport width */
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw; /* break out of page-wrapper */
-  margin-right: -50vw;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  background: #020617
-    url("https://raw.githubusercontent.com/lajhinfo-creator/Schwab-learning-journey/main/Image6.png")
-      center/cover no-repeat;
-  background-attachment: fixed; /* fixed for anchored feel */
+  width: 100%; /* fill container width */
+  background-color: #020617;
+  background-image: url("https://raw.githubusercontent.com/lajhinfo-creator/Schwab-learning-journey/main/Image6.png");
+  background-repeat: no-repeat;
+  background-size: cover; /* stretch image across width, keep aspect ratio */
+  background-position: center bottom;
   color: white;
-  height: 80vh;
+  height: 60vh;              /* panel height */
   padding: 0 40px 28px;
   text-align: center;
   overflow: hidden;
@@ -229,7 +229,11 @@ body {
 .footer-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(15, 23, 42, 0.78), transparent 55%);
+  background: linear-gradient(
+    to top,
+    rgba(15, 23, 42, 0.78),
+    transparent 55%
+  );
   z-index: 1;
 }
 
@@ -241,6 +245,9 @@ body {
   font-size: 15px;
   color: #f3f4f6;
   margin: 0 auto;
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 
 /* ==============================
