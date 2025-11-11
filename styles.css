@@ -517,3 +517,158 @@ body {
     display: none !important;
   }
 }
+
+/* ==============================
+   RESPONSIVE DESIGN (Mobile / Tablet)
+============================== */
+
+/* Tablets & Small Laptops (≤1024px) */
+@media (max-width: 1024px) {
+  .page-wrapper {
+    margin: 20px;
+    border-radius: 10px;
+  }
+
+  .header {
+    padding: 50px 30px 40px;
+    background-position: center top;
+    background-size: cover;
+  }
+
+  .main-content {
+    grid-template-columns: 1fr;
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .footer {
+    height: 50vh;
+    background-attachment: scroll; /* smoother on iOS */
+  }
+}
+
+/* Large Phones / Small Tablets (≤768px) */
+@media (max-width: 768px) {
+  body {
+    background: #0f172a;
+  }
+
+  .header {
+    padding: 40px 24px 30px;
+    text-align: center;
+  }
+
+  .header h1 {
+    font-size: 1.9rem;
+    line-height: 1.3;
+  }
+
+  .header .subtitle {
+    font-size: 1rem;
+  }
+
+  .logo {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 0 auto 10px;
+    display: inline-block;
+  }
+
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .section-title {
+    font-size: 16px;
+  }
+
+  .section-body,
+  .bullet-text,
+  .enhancement-text {
+    font-size: 13px;
+  }
+
+  .quote-box {
+    margin: 12px 0;
+    padding: 12px 20px;
+  }
+
+  .impact-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .impact-pill {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer {
+    padding: 0 20px 20px;
+    height: 60vh;
+    text-align: center;
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .footer-text {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  #downloadPDF {
+    bottom: 16px;
+    right: 16px;
+    padding: 10px 14px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+}
+
+/* Small Phones (≤480px) */
+@media (max-width: 480px) {
+  .header {
+    padding: 30px 16px 24px;
+  }
+
+  .header h1 {
+    font-size: 1.6rem;
+  }
+
+  .header .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .main-content {
+    padding: 16px;
+  }
+
+  .card {
+    padding: 14px 16px;
+  }
+
+  .footer {
+    height: 50vh;
+    padding: 0 16px 18px;
+  }
+
+  .footer-text {
+    font-size: 13px;
+  }
+
+  #downloadPDF {
+    bottom: 12px;
+    right: 12px;
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}
+
