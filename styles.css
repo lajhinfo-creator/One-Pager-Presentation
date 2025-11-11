@@ -393,7 +393,7 @@ body {
   background-repeat: no-repeat;
 
   /* Start slightly zoomed in and low */
-  background-size: 120% auto;       /* starting zoom (will animate down) */
+  background-size: 75% auto;       /* starting zoom (will animate down) */
   background-position: center 90%;  /* start focus a bit lower */
   background-attachment: fixed;     /* anchored feel */
 
