@@ -56,12 +56,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("downloadPDF");
   if (btn) {
     btn.addEventListener("click", () => {
-      // Replace the URL below with your actual GitHub file path
-      const pdfUrl = "https://raw.githubusercontent.com/lajhinfo-creator/Schwab-learning-journey/main/Lorne%20Hopkins%20-%201%20pager%20Presentation.pdf";
+      const pdfUrl = "https://raw.githubusercontent.com/lajhinfo-creator/One-Pager-Presentation/main/Lorne%20Hopkins%20-%201%20pager%20Presentation.pdf";
       
       const link = document.createElement("a");
       link.href = pdfUrl;
-      link.download = "Lorne Hopkins - 1 Pager Presentation.pdf"; // download name
+      link.download = "Lorne Hopkins - 1 Pager Presentation.pdf";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
